@@ -1,0 +1,13 @@
+---
+- name: confirm or creat directory
+  file:
+    path: "{{config_assemble}}"
+    state: directory
+- name: delete build directory
+  file:
+    path: "{{config_assemble_build}}"
+    state: absent
+- name: creat build directory
+  file:
+    path: "{{config_assemble_build}}"
+    state: directory

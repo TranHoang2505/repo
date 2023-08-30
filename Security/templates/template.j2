@@ -1,0 +1,64 @@
+{% if inventory_hostname == 'vnportal-2019' %}
+security {
+    zones {
+        security-zone VR0_untrust {
+            address-book {
+                address {{ source_address }} {{ source_address }};
+                address-set blacklist-vnportal {
+                    address {{ source_address }};       
+                }
+            }
+        }
+    }
+}
+{% endif %}
+{% if inventory_hostname == 'vnportal-2020' %}
+security {
+    address-book {
+        VNPT_INTERNET {
+            address {{ source_address }} {{ source_address }};
+            address-set blacklist-vnportal {
+                address {{ source_address }};
+            }
+        }
+    }
+}
+{% endif %}
+{% if inventory_hostname == 'hanoinew' %}
+security {
+    zones {
+        security-zone INTERNET_DHIT {
+            address-book {
+                address {{ source_address }} {{ source_address }};
+                address-set blacklist-hanoinew {
+                    address {{ source_address }};       
+                }
+            }
+        }
+    }
+}
+{% endif %}
+{% if inventory_hostname == 'dvcqgdientap' %}
+security {
+    address-book {
+        VNPT_INTERNET {
+            address {{ source_address }} {{ source_address }};
+            address-set blacklist-dvcqgdientap {
+                address {{ source_address }};
+            }
+        }
+    }
+}
+{% endif %}
+{% if inventory_hostname == 'congthongtincp' %}
+security {
+    address-book {
+        VNPT_INTERNET {
+            address {{ source_address }} {{ source_address }};
+            address-set blacklist-cttcp {
+                address {{ source_address }};
+            }
+        }
+    }
+}
+{% endif %}
